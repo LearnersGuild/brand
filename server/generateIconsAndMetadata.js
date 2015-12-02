@@ -23,7 +23,7 @@ function saveFiles(directory, files) {
 }
 
 function saveHtmlIconsMetadata(directory, html) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const absFilename = path.join(directory, 'icons-metadata.json')
     // It's okay to swallow the unlink error -- we don't care if the file doesn't exist.
     fs.unlink(absFilename, (/* err */) => fs.writeFileSync(absFilename, JSON.stringify(html), 'utf-8'))

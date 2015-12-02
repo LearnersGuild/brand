@@ -2,22 +2,21 @@ import fs from 'fs'
 import path from 'path'
 import swaggerTools from 'swagger-tools'
 import YAML from 'yamljs'
+import _ from 'lodash'
 
 // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
 const swaggerDoc = YAML.load(path.join(__dirname, '../config/swagger-icons.yaml'))
 
 function getControllers() {
-  const files = fs.readdirSync(path.join(__dirname, 'controllers'))
-  const controllers = {}
-  for (const i in files) {
-    const file = files[i]
-    if (file.match(/\.js$/)) {
-      const controllerName = file.replace(/\.js$/, '')
-      const controllerFunc = require(`./controllers/${controllerName}`)
-      controllers[controllerName] = controllerFunc
-    }
-  }
-  return controllers
+  return new Promise((resolve) => {
+    fs.readdir(path.join(__dirname, 'controllers'), (err, files) => {
+      resolve(_.zipObject(_.map(files, (file) => {
+        const controllerName = file.replace(/\.js$/, '')
+        const controllerFunc = require(`./controllers/${controllerName}`)
+        return [controllerName, controllerFunc]
+      })))
+    })
+  })
 }
 
 export default function configureSwagger(app, next) {
@@ -30,7 +29,7 @@ export default function configureSwagger(app, next) {
     app.use(middleware.swaggerValidator())
 
     // Route validated requests to appropriate controller
-    app.use(middleware.swaggerRouter({ controllers: getControllers() }))
+    getControllers().then((controllers) => app.use(middleware.swaggerRouter({ controllers })))
 
     // Serve the Swagger documents and Swagger UI
     app.use(middleware.swaggerUi())
