@@ -19,35 +19,24 @@ consumes:
 produces:
   - application/json
 paths:
-  /icons:
+  /tags:
     get:
-      description: Returns the various icons in all sizes / formats
-      operationId: getAllIcons
+      description: Returns the HTML icons metadata response
+      operationId: getHTMLMetadataTags
       produces:
         - application/json
       responses:
         '200':
-          description: icon response
+          description: HTML icons metadata response
           schema:
             type: array
             items:
-              $ref: '#/definitions/icon'
+              type: string
         default:
           description: unexpected error
           schema:
             $ref: '#/definitions/errorModel'
 definitions:
-  icon:
-    type: object
-    description: An icon
-    required:
-      - name
-      - size
-    properties:
-      name:
-        type: string
-      size:
-        type: string
   errorModel:
     type: object
     description: Error information returned by an unsuccessful API call.
