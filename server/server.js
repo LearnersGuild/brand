@@ -5,7 +5,7 @@ import path from 'path'
 import Express from 'express'
 import serveStatic from 'serve-static'
 
-import configureDevEnvironment from './configure-dev-environment'
+import configureDevEnvironment from './configureDevEnvironment'
 import configureSwagger from './configureSwagger'
 import generateIconsAndMetadata from './generateIconsAndMetadata'
 
