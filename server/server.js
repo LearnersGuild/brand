@@ -9,9 +9,8 @@ import configureDevEnvironment from './configureDevEnvironment'
 import configureSwagger from './configureSwagger'
 import generateIconsAndMetadata from './generateIconsAndMetadata'
 
-const serverHost = process.env.APP_HOSTNAME || 'localhost'
 const serverPort = parseInt(process.env.PORT, 10)
-const baseUrl = `http://${serverHost}:${serverPort}`
+const baseUrl = process.env.APP_BASEURL || `http://localhost:${serverPort}`
 
 const app = new Express()
 
@@ -34,11 +33,11 @@ generateIconsAndMetadata(baseUrl)
 
 // Swagger middleware
 configureSwagger(app, ()=> {
-  app.listen(serverPort, (error) => {
+  app.listen(process.env.PORT, (error) => {
     if (error) {
       console.error(error)
     } else {
-      console.info('🌍  Listening at http://%s:%d ', serverHost, serverPort)
+      console.info('🌍  Listening at %s', baseUrl)
     }
   })
 })
