@@ -9,11 +9,6 @@ info:
     email: jeffrey@learnersguild.org
   license:
     name: ISC
-host: icons.learnersguild.org
-basePath: /
-schemes:
-  - http
-  - https
 consumes:
   - application/json
 produces:
