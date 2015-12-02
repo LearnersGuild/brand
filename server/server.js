@@ -41,3 +41,6 @@ configureSwagger(app, ()=> {
     }
   })
 })
+
+// Redirect to Swagger API docs
+app.get('/', (req, res) => res.redirect('/docs/#!/default'))
