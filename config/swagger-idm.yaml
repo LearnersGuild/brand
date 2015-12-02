@@ -1,0 +1,62 @@
+swagger: '2.0'
+info:
+  version: 0.1.0
+  title: icons
+  description: Learners Guild Icons
+  termsOfService: 'https://learnersguild.org/legal/terms'
+  contact:
+    name: Jeffrey Wescott
+    email: jeffrey@learnersguild.org
+  license:
+    name: ISC
+host: icons.learnersguild.org
+basePath: /
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /icons:
+    get:
+      description: Returns the various icons in all sizes / formats
+      operationId: getAllIcons
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: icon response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/icon'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/errorModel'
+definitions:
+  icon:
+    type: object
+    description: An icon
+    required:
+      - name
+      - size
+    properties:
+      name:
+        type: string
+      size:
+        type: string
+  errorModel:
+    type: object
+    description: Error information returned by an unsuccessful API call.
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

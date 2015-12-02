@@ -1,0 +1,64 @@
+{
+  "name": "icons",
+  "version": "0.1.0",
+  "description": "Icons Service",
+  "main": "server/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LearnersGuild/icons.git"
+  },
+  "author": {
+    "name": "Jeffrey Wescott",
+    "email": "jeffrey@learnersguild.org"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx .",
+    "start": "node server",
+    "test": "./node_modules/.bin/jest"
+  },
+  "jest": {
+    "testFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ]
+  },
+  "keywords": [
+    "icons",
+    "swagger"
+  ],
+  "license": "ISC",
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/LearnersGuild/icons/issues"
+  },
+  "homepage": "https://github.com/LearnersGuild/icons#readme",
+  "dependencies": {
+    "babel": "^5.8.34",
+    "babel-core": "^5.8.34",
+    "babel-runtime": "^5.8.34",
+    "bluebird": "^3.0.5",
+    "dotenv": "^1.2.0",
+    "express": "^4.13.3",
+    "favicons": "^4.2.6",
+    "serve-static": "^1.10.0",
+    "swagger-tools": "0.9.*",
+    "yamljs": "^0.2.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.3",
+    "eslint": "^1.7.3",
+    "eslint-config-airbnb": "^0.1.0",
+    "eslint-plugin-react": "^3.6.3",
+    "jest-cli": "^0.8.0",
+    "jest-css-modules": "^1.0.0",
+    "piping": "^0.3.0"
+  },
+  "engines": {
+    "node": "4.2.1"
+  }
+}
