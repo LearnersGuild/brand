@@ -1,7 +1,6 @@
 /* eslint-disable no-console, no-undef */
 process.env.PORT = process.env.PORT || '8080'
 
-import fs from 'fs'
 import path from 'path'
 import Express from 'express'
 import serveStatic from 'serve-static'
