@@ -5,7 +5,7 @@ import YAML from 'yamljs'
 import _ from 'lodash'
 
 // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
-const swaggerDoc = YAML.load(path.join(__dirname, '../config/swagger-icons.yaml'))
+const swaggerDoc = YAML.load(path.join(__dirname, '../config/swagger.yaml'))
 
 function getControllers() {
   return new Promise((resolve) => {
