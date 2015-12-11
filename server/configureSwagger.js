@@ -11,7 +11,8 @@ const swaggerDoc = YAML.load(path.join(__dirname, '../config/swagger.yaml'))
 function getControllers() {
   return new Promise((resolve) => {
     fs.readdir(path.join(__dirname, 'controllers'), (err, files) => {
-      resolve(_.zipObject(_.map(files, (file) => {
+      const controllerModuleFiles = _.filter(files, (file) => file.match(/\.js$/))
+      resolve(_.zipObject(_.map(controllerModuleFiles, (file) => {
         const controllerName = file.replace(/\.js$/, '')
         const controllerFunc = require(`./controllers/${controllerName}`)
         return [controllerName, controllerFunc]
