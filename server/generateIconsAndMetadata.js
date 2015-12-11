@@ -73,7 +73,7 @@ export default function generateIconsAndMetadata(baseUrl) {
           saveIcons(distDir, response.images),
           saveFiles(distDir, response.files),
           saveHtmlIconsMetadata(distDir, response.html),
-        ]).then(resolve)
+        ]).then(() => resolve(response.html))
       }
     })
   })

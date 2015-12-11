@@ -1,13 +1,14 @@
 /* eslint-disable no-console, no-undef */
 process.env.PORT = process.env.PORT || '8080'
 
+import fs from 'fs'
 import path from 'path'
 import Express from 'express'
 import serveStatic from 'serve-static'
 
 import configureDevEnvironment from './configureDevEnvironment'
-import configureSwagger from './configureSwagger'
 import generateIconsAndMetadata from './generateIconsAndMetadata'
+import { replaceSwaggerUiHtml, default as configureSwagger } from './configureSwagger'
 
 const serverPort = parseInt(process.env.PORT, 10)
 const baseUrl = process.env.APP_BASEURL || `http://localhost:${serverPort}`
@@ -24,15 +25,19 @@ app.use(serveStatic(path.join(__dirname, '../public')))
 
 console.info('Generating icons and metadata ...')
 generateIconsAndMetadata(baseUrl)
-  .then((/* response */) => {
+  .then((iconsMetadataTags) => {
     console.info('... done generating icons and metadata.')
+    replaceSwaggerUiHtml(iconsMetadataTags.join('\n        '))
   })
-  .catch((/* error */) => {
-    console.error('... ERROR generating icons and metadata.')
+  .catch((error) => {
+    console.error('... ERROR generating icons and metadata:', error)
   })
 
-// Swagger middleware
+// Configure Swagger middleware firt, then start app
 configureSwagger(app, ()=> {
+  // Redirect to Swagger API docs
+  app.get('/', (req, res) => res.redirect('/docs/#!/default'))
+
   app.listen(process.env.PORT, (error) => {
     if (error) {
       console.error(error)
@@ -41,6 +46,3 @@ configureSwagger(app, ()=> {
     }
   })
 })
-
-// Redirect to Swagger API docs
-app.get('/', (req, res) => res.redirect('/docs/#!/default'))
