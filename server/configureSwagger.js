@@ -9,10 +9,16 @@ import ejs from 'ejs'
 const swaggerDoc = YAML.load(path.join(__dirname, '../config/swagger.yaml'))
 
 function getControllers() {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     fs.readdir(path.join(__dirname, 'controllers'), (err, files) => {
+      if (err) {
+        if (err.code === 'ENOENT') {
+          return []
+        }
+        return reject(err)
+      }
       const controllerModuleFiles = _.filter(files, (file) => file.match(/\.js$/))
-      resolve(_.zipObject(_.map(controllerModuleFiles, (file) => {
+      return resolve(_.zipObject(_.map(controllerModuleFiles, (file) => {
         const controllerName = file.replace(/\.js$/, '')
         const controllerFunc = require(`./controllers/${controllerName}`)
         return [controllerName, controllerFunc]
