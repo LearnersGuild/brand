@@ -13,7 +13,7 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx .",
-    "start": "node server",
+    "start": "node --max_old_space_size=448 server",
     "test": "./node_modules/.bin/jest"
   },
   "jest": {
