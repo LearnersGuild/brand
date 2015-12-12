@@ -21,6 +21,9 @@
       "js",
       "jsx"
     ],
+    "modulePathIgnorePatterns": [
+      "/node_modules/"
+    ],
     "moduleFileExtensions": [
       "js",
       "json",
