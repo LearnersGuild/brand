@@ -5,6 +5,10 @@ require('babel/register')
 global.__SERVER__ = true
 global.__DEVELOPMENT__ = process.env.NODE_ENV === 'development'
 
+if (process.env.NODE_ENV === 'production') {
+  require('newrelic')
+}
+
 if (__DEVELOPMENT__) {
   if (require('piping')()) {
     // application logic here
