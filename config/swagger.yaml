@@ -17,6 +17,7 @@ paths:
   /tags:
     get:
       description: Returns the HTML icons metadata response
+      x-swagger-router-controller: Tags
       operationId: getHTMLMetadataTags
       produces:
         - application/json

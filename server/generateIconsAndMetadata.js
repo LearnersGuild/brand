@@ -1,7 +1,6 @@
 import fs from 'fs.extra'
 import path from 'path'
 import favicons from 'favicons'
-import Promise from 'bluebird'
 
 
 function saveIcons(directory, images) {
