@@ -6,8 +6,7 @@ import Express from 'express'
 import serveStatic from 'serve-static'
 
 import configureDevEnvironment from './configureDevEnvironment'
-import generateIconsAndMetadata from './generateIconsAndMetadata'
-import { replaceSwaggerUiHtml, default as configureSwagger } from './configureSwagger'
+import configureSwagger from './configureSwagger'
 
 export function start() {
   const serverPort = parseInt(process.env.PORT, 10)
@@ -22,16 +21,6 @@ export function start() {
   // Use this middleware to server up static files
   app.use(serveStatic(path.join(__dirname, '../dist')))
   app.use(serveStatic(path.join(__dirname, '../public')))
-
-  console.info('Generating icons and metadata ...')
-  generateIconsAndMetadata(baseUrl)
-    .then((iconsMetadataTags) => {
-      console.info('... done generating icons and metadata.')
-      replaceSwaggerUiHtml(iconsMetadataTags.join('\n        '))
-    })
-    .catch((error) => {
-      console.error('... ERROR generating icons and metadata:', error)
-    })
 
   return Promise.all([
     // Configure Swagger middleware firt, then start app

@@ -12,7 +12,9 @@ const swaggerDoc = YAML.load(path.join(__dirname, '../config/swagger.yaml'))
 // Customize the look-and-feel of the Swagger docs.
 export function replaceSwaggerUiHtml(iconsMetadataTagsHtml) {
   const title = 'icons API'
-  const logoUrl = 'https://lg-icons.herokuapp.com/favicon-32x32.png'
+  const serverPort = parseInt(process.env.PORT, 10)
+  const baseUrl = process.env.APP_BASEURL || `http://localhost:${serverPort}`
+  const logoUrl = `${baseUrl}/favicon-32x32.png`
   const customSwaggerUiTemplateFilename = path.join(__dirname, '..', 'public', 'templates', 'swagger-docs.html.ejs')
   const swaggerUiHtmlFilename = path.join(__dirname, '..', 'node_modules', 'swagger-tools', 'middleware', 'swagger-ui', 'index.html')
 
