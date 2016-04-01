@@ -1,9 +1,9 @@
 swagger: '2.0'
 info:
   version: 0.1.0
-  title: icons
-  description: Learners Guild Icons
-  termsOfService: 'https://learnersguild.org/legal/terms'
+  title: brand
+  description: Learners Guild Brand
+  termsOfService: 'https://www.learnersguild.org/privacypolicy.html'
   contact:
     name: Jeffrey Wescott
     email: jeffrey@learnersguild.org
@@ -14,10 +14,10 @@ consumes:
 produces:
   - application/json
 paths:
-  /tags:
+  /icontags:
     get:
       description: Returns the HTML icons metadata response
-      x-swagger-router-controller: Tags
+      x-swagger-router-controller: IconTags
       operationId: getHTMLMetadataTags
       produces:
         - application/json
