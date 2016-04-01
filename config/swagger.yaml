@@ -32,6 +32,24 @@ paths:
           description: unexpected error
           schema:
             $ref: '#/definitions/errorModel'
+  /logos:
+    get:
+      description: Returns the available logo files
+      x-swagger-router-controller: Logos
+      operationId: getAvailableLogos
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: logo image files in various sizes and formats
+          schema:
+            type: array
+            items:
+              type: string
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/errorModel'
 definitions:
   errorModel:
     type: object
