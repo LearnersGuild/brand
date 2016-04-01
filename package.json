@@ -1,7 +1,7 @@
 {
-  "name": "icons",
-  "version": "0.1.0",
-  "description": "Icons Service",
+  "name": "brand",
+  "version": "0.2.0",
+  "description": "Brand Service",
   "main": "server/index.js",
   "repository": {
     "type": "git",
