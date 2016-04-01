@@ -8,7 +8,7 @@ Fork, then clone the repo:
 
 Create your `.env` file for your environment, e.g.:
 
-    $ echo -e "PORT=8080\nNODE_ENV=development"
+    $ echo -e "PORT=8084\nNODE_ENV=development"
 
 Make sure the tests pass:
 
