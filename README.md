@@ -13,14 +13,34 @@ Special thanks to the folks who built the [favicons generator for Node][node-fav
 
 Be sure you've read the [instructions for contributing](./CONTRIBUTING.md).
 
+
 1. Clone the repository.
-2. Create your `.env` file for your environment, e.g.:
-    $ echo -e "PORT=8084\nNODE_ENV=development"
-3. Run the server:
-    $ npm install
-    $ npm start
-4. Visit the server in your browser:
-    $ open http://localhost:8084
+
+2. Setup [pow][pow]. Then figure out which port you intend to use and create the pow config file:
+
+        $ echo 9003 > ~/.pow/brand.learnersguild
+
+3. Set your `NODE_ENV` environment variable:
+
+        $ export NODE_ENV=development
+
+4. Create your `.env` file for your environment. Example:
+
+        PORT=9003
+        APP_BASEURL=http://brand.learnersguild.dev
+
+5. Run the setup tasks:
+
+        $ npm install
+
+6. Run the server:
+
+        $ npm start
+
+7. Visit the server in your browser:
+
+        $ open http://brand.learnersguild.dev
+
 
 
 ## License
@@ -32,3 +52,4 @@ See the [LICENSE](./LICENSE) file.
 [learnersguild]: https://www.learnersguild.org
 [favicon-cheat-sheet]: https://github.com/audreyr/favicon-cheat-sheet
 [node-favicons-generator]: https://github.com/haydenbleasel/favicons
+[pow]: http://pow.cx

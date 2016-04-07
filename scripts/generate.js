@@ -11,7 +11,7 @@ function run() {
   }
 
   const serverPort = parseInt(process.env.PORT, 10)
-  const baseUrl = process.env.APP_BASEURL || `http://localhost:${serverPort}`
+  const baseUrl = process.env.APP_BASEURL
   generateIconsAndMetadata(baseUrl)
     .then((iconsMetadataTags) => {
       console.info('... done generating icons and metadata.')

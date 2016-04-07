@@ -10,7 +10,7 @@ import configureSwagger from './configureSwagger'
 
 export function start() {
   const serverPort = parseInt(process.env.PORT, 10)
-  const baseUrl = process.env.APP_BASEURL || `http://localhost:${serverPort}`
+  const baseUrl = process.env.APP_BASEURL
 
   const app = new Express()
 
