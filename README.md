@@ -16,9 +16,9 @@ Be sure you've read the [instructions for contributing](./CONTRIBUTING.md).
 
 1. Clone the repository.
 
-2. Setup [pow][pow]. Then figure out which port you intend to use and create the pow config file:
+2. Setup and run [mehserve][mehserve]. Then figure out which port you intend to use and create the pow config file:
 
-        $ echo 9003 > ~/.pow/brand.learnersguild
+        $ echo 9003 > ~/.mehserve/brand.learnersguild
 
 3. Set your `NODE_ENV` environment variable:
 
@@ -52,4 +52,4 @@ See the [LICENSE](./LICENSE) file.
 [learnersguild]: https://www.learnersguild.org
 [favicon-cheat-sheet]: https://github.com/audreyr/favicon-cheat-sheet
 [node-favicons-generator]: https://github.com/haydenbleasel/favicons
-[pow]: http://pow.cx
+[mehserve]: https://github.com/timecounts/mehserve
