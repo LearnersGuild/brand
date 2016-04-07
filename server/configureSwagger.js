@@ -12,7 +12,6 @@ const swaggerDoc = YAML.load(path.join(__dirname, '../config/swagger.yaml'))
 // Customize the look-and-feel of the Swagger docs.
 export function replaceSwaggerUiHtml(iconsMetadataTagsHtml) {
   const title = 'brand API'
-  const serverPort = parseInt(process.env.PORT, 10)
   const baseUrl = process.env.APP_BASEURL
   const logoUrl = `${baseUrl}/favicon-32x32.png`
   const customSwaggerUiTemplateFilename = path.join(__dirname, '..', 'public', 'templates', 'swagger-docs.html.ejs')
