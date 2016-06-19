@@ -15,7 +15,7 @@
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx .",
     "postinstall": "node scripts/generate",
     "start": "node server",
-    "test": "./node_modules/.bin/jest"
+    "test": "npm run lint && ./node_modules/.bin/jest"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
