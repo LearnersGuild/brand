@@ -1,5 +1,9 @@
 # brand
 
+[![Code Climate GPA](https://codeclimate.com/repos/579a5a423f9350008b002155/badges/a804d2cb9113872571ed/gpa.svg)](https://codeclimate.com/repos/579a5a423f9350008b002155/feed)
+[![Code Climate Issue Count](https://codeclimate.com/repos/579a5a423f9350008b002155/badges/a804d2cb9113872571ed/issue_count.svg)](https://codeclimate.com/repos/579a5a423f9350008b002155/feed)
+[![Test Coverage](https://codeclimate.com/repos/579a5a423f9350008b002155/badges/a804d2cb9113872571ed/coverage.svg)](https://codeclimate.com/repos/579a5a423f9350008b002155/coverage)
+
 Brand service for [Learners Guild][learnersguild].
 
 One of the more annoying things about developing a web app is keeping up with the ever-changing specs from various platform providers around favicons. There's [cheat sheets][favicon-cheat-sheet] and such, but it's still on you to make it all work.
