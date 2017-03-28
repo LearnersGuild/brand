@@ -76,7 +76,7 @@
     "tape": "^4.6.0"
   },
   "engines": {
-    "node": "4.2.3"
+    "node": "7.7.4"
   },
   "nyc": {
     "all": true,
