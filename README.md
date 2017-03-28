@@ -18,30 +18,38 @@ Special thanks to the folks who built the [favicons generator for Node][node-fav
 Be sure you've read the [instructions for contributing](./CONTRIBUTING.md).
 
 
-1. Clone the repository.
+1. **Globally** install [nvm][nvm], [avn][avn], and [avn-nvm][avn-nvm].
 
-2. Setup and run [mehserve][mehserve]. Then figure out which port you intend to use and create the pow config file:
+    ```bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+    npm install -g avn avn-nvm
+    avn setup
+    ```
+
+2. Clone the repository.
+
+3. Setup and run [mehserve][mehserve]. Then figure out which port you intend to use and create the pow config file:
 
         $ echo 9003 > ~/.mehserve/brand.learnersguild
 
-3. Set your `NODE_ENV` environment variable:
+4. Set your `NODE_ENV` environment variable:
 
         $ export NODE_ENV=development
 
-4. Create your `.env` file for your environment. Example:
+5. Create your `.env` file for your environment. Example:
 
         PORT=9003
         APP_BASEURL=http://brand.learnersguild.dev
 
-5. Run the setup tasks:
+6. Run the setup tasks:
 
         $ npm install
 
-6. Run the server:
+7. Run the server:
 
         $ npm start
 
-7. Visit the server in your browser:
+8. Visit the server in your browser:
 
         $ open http://brand.learnersguild.dev
 
@@ -57,3 +65,6 @@ See the [LICENSE](./LICENSE) file.
 [favicon-cheat-sheet]: https://github.com/audreyr/favicon-cheat-sheet
 [node-favicons-generator]: https://github.com/haydenbleasel/favicons
 [mehserve]: https://github.com/timecounts/mehserve
+[nvm]: https://github.com/creationix/nvm
+[avn]: https://github.com/wbyoung/avn
+[avn-nvm]: https://github.com/wbyoung/avn-nvm
