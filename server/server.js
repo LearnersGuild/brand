@@ -22,7 +22,7 @@ export function start() {
   app.use(serveStatic(path.join(__dirname, '../public')))
 
   return Promise.all([
-    // Configure Swagger middleware firt, then start app
+    // Configure Swagger middleware first, then start app
     configureSwagger(app),
   ]).then(() => {
     // Redirect to Swagger API docs
