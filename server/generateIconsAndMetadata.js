@@ -32,6 +32,9 @@ function saveHtmlIconsMetadata(directory, html) {
 
 export default function generateIconsAndMetadata(baseUrl) {
   return new Promise((resolve, reject) => {
+    // workaround favicons bug
+    // (see: https://github.com/evilebottnawi/favicons/issues/103)
+    const escBaseUrl = baseUrl.replace('://', ':\\\\')
     const publicDir = path.join(__dirname, '..', 'public')
     const publicAssetsDir = path.join(publicDir, 'assets')
     const distDir = path.join(__dirname, '..', 'dist')
@@ -42,8 +45,8 @@ export default function generateIconsAndMetadata(baseUrl) {
       developerName: 'Learners Guild',            // Your (or your developer's) name. `string`
       developerURL: 'https://learnersguild.org',  // Your (or your developer's) URL. `string`
       background: '#fff',             // Background colour for flattened icons. `string`
-      path: `${baseUrl}`,             // Path for overriding default icons path. `string`
-      url: `${baseUrl}`,              // Absolute URL for OpenGraph image. `string`
+      path: escBaseUrl,               // Path for overriding default icons path. `string`
+      url: baseUrl,                   // Absolute URL for OpenGraph image. `string`
       display: 'standalone',          // Android display: 'browser' or 'standalone'. `string`
       orientation: 'portrait',        // Android orientation: "portrait" or "landscape". `string`
       version: null,                  // Your application's version number. `number`
